@@ -1,3 +1,46 @@
 * {
-  font-family: Arial
+  font-family: Arial;
+  font-size: 16px;
 }
+
+#title {
+  font-size: 50px;
+}
+
+input[type=submit] {
+  background-color: #0AF;
+  padding: 8px 30px;
+  color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.btn {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.text-box {
+  border-color: #CCC;
+  border-width: 2px;
+  width: 215px;
+  padding: 7px 10px;
+  margin: 0px 30px 40px 5px;
+}
+
+.task-container {
+  width: 290px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text-left {
+  margin-right: auto;
+}
+
+/* .button-container {
+  float: right;
+} */

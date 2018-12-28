@@ -39,17 +39,19 @@ export default class Homepage extends Component {
   }
   handleSubmit(event) {
     event.preventDefault()
-    this.setState({
-      count: this.state.count + 1,
-      list: this.state.list.concat([
-        {
-          id: this.state.count + 1,
-          text: this.state.value,
-          completed: false
-        }
-      ]),
-      value: ''
-    })
+    if(this.state.value !== ''){
+      this.setState({
+        count: this.state.count + 1,
+        list: this.state.list.concat([
+          {
+            id: this.state.count + 1,
+            text: this.state.value,
+            completed: false
+          }
+        ]),
+        value: ''
+      })
+    }
   }
   completeButton(key) {
     let updatedList = this.state.list
@@ -89,17 +91,18 @@ export default class Homepage extends Component {
   render() {
     return (
       <div>
-        <h1>To-Do List</h1>
+        <h1 id="title" >To-Do List</h1>
         <form onSubmit={this.handleSubmit}>
           <label>
             <input
+            className={'text-box'}
               type="text"
               value={this.state.value}
               onChange={this.handleChange}
               placeholder="Add todo"
             />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Add"/>
         </form>
         {this.state.list
           .filter(element => !element.completed)
@@ -123,6 +126,7 @@ export default class Homepage extends Component {
                   id={element.id}
                   title={element.text}
                   deleteButton={this.deleteButton}
+                  completed={element.completed}
                 />
               ))}
           </div>
